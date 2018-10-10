@@ -161,6 +161,7 @@ public class Main {
     }
 
     public Boolean initDevice(){
+
         Boolean loginStat=device.loginToDevice();
         if(loginStat!=true){
             System.out.println("Login device fail");
@@ -251,11 +252,15 @@ public class Main {
                 System.out.println("student:"+currentStudent.toString());
 
 
-                if(avatar!=""){
+                System.out.println(avatar.length());
+
+                if(avatar.length()!=0){
                     Request request1=new Request.Builder().url(avatar).build();
                     Response response2=httpClient.newCall(request1).execute();
                     currentStudent.Avatar= response2.body().bytes();
                     response2.close();
+                }else{
+                    continue;
                 }
 
                 try {
