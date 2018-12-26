@@ -45,6 +45,11 @@ public class Student implements Serializable {
 
     public String SyncResult;
 
+    @Override
+    public String toString() {
+        return "id:"+ID+",name:"+name+"，uuid:"+UUID+",schoolUuid:"+DeviceUUID+",avatar:"+AvatarUrl;
+    }
+
     public void syncServer(OkHttpClient client) throws Exception {
         if(UUID==""){
             throw new Exception("uuid is null");
