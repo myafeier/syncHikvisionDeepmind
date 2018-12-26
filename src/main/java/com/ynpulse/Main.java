@@ -252,7 +252,7 @@ public class Main {
                 System.out.println("student:"+currentStudent.toString());
 
 
-                System.out.println(avatar.length());
+                System.out.println("avatarLength:"+avatar.length());
 
                 if(avatar.length()!=0){
                     Request request1=new Request.Builder().url(avatar).build();
@@ -260,6 +260,7 @@ public class Main {
                     currentStudent.Avatar= response2.body().bytes();
                     response2.close();
                 }else{
+                    System.out.println("get student avatar error!,studentId:"+currentStudent.UUID);
                     continue;
                 }
 
@@ -277,7 +278,7 @@ public class Main {
                     sb.append("student Info:");
                     sb.append(currentStudent.toString());
                     sb.append("\n");
-
+                    System.out.println(sb.toString().getBytes());
                     logStream.write(sb.toString().getBytes());
                     continue;
                 }
